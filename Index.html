@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Límier ISL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Límier ISL</div>
+        <nav>
+            <a href="Index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="login.html">👤 Iniciar Sesión</a>
+            <a href="#" onclick="goToCheckout()">🛒 Carrito (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar pijamas, tallas, colores..." onkeyup="filterProducts()">
+        <button>🔍</button>
+    </div>
+    
+
+    <main>
+        <section id="inicio" class="hero">
+            <h1>Dulces Sueños, Estilo Delicado.</h1>
+            <p>Descubre nuestra colección de pijamas en tonos pastel.</p>
+            <a href="catalogo.html" class="button-primary">Ver Catálogo</a>
+        </section>
+
+        <section id="catalogo">
+            <h2> Nuestro Catálogo</h2>
+            <div class="product-grid" id="productGrid">
+                </div>
+        </section>
+
+        <section id="checkout-page" class="hidden">
+            <h2>💳 Pasarela de Pago (Simulada)</h2>
+            <div id="checkout-summary"></div>
+            <form id="payment-form">
+                <label for="name">Nombre en la tarjeta:</label>
+                <input type="text" id="name" required>
+
+                <label for="card">Número de tarjeta:</label>
+                <input type="text" id="card" pattern="\d{16}" title="16 dígitos" required>
+
+                <label for="exp">Fecha de Vencimiento (MM/AA):</label>
+                <input type="text" id="exp" pattern="\d{2}/\d{2}" placeholder="01/25" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" pattern="\d{3,4}" required>
+
+                <button type="button" onclick="processPayment()" class="button-primary">Finalizar Compra</button>
+                <p class="low-fidelity-note">⚠️ **Nota de Baja Fidelidad:** La pasarela de pago es una **simulación**. En un sitio real, esto requiere un backend y un servicio de pago seguro (Stripe, PayPal, etc.).</p>
+            </form>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="toggleCart()">&times;</span>
+            <h3>🛒 Carrito de Compras</h3>
+            <div id="cart-items">
+                <p id="empty-cart-message">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-footer">
+                <p>Total: **$<span id="cart-total">0.00</span>**</p>
+                <button onclick="goToCheckout()" class="button-primary">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="chatbot-container">
+        <div id="chatbot-header" onclick="toggleChatbot()">💬 Chatea con nosotros</div>
+        <div id="chatbot-body" class="hidden">
+            <div id="chatbot-messages">
+                <p class="bot-message">Hola! ¿Cómo puedo ayudarte con tu compra de pijamas hoy? 😊</p>
+            </div>
+            <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." onkeypress="handleChatInput(event)">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

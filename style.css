@@ -1,0 +1,417 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* --- Variables de Color --- */
+:root {
+    --color-pale-pink: #F8D7DA; /* Rosa Pálido */
+    --color-pastel-pink: #FFB6C1; /* Rosa Pastel (LightPink) */
+    --color-dark-text: #444444;
+    --color-light-bg: #ffe3e3;
+    --color-accent: #E899A6; /* Un tono un poco más oscuro para acentos */
+}
+
+/* --- Base y Tipografía General --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-light-bg);
+    color: var(--color-dark-text);
+    line-height: 1.6;
+    
+    /* APLICACIÓN DE LA FUENTE: Poltawski Nowy */
+    font-family: 'Poltawski Nowy', serif; 
+}
+
+h1, h2 {
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--color-pastel-pink);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-dark-text);
+}
+
+nav a {
+    color: var(--color-dark-text);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--color-pale-pink);
+}
+
+/* --- Search Bar --- */
+.search-container {
+    padding: 20px 5%;
+    background-color: var(--color-pale-pink);
+    display: flex;
+    justify-content: center;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 60%;
+    max-width: 500px;
+    border: 1px solid var(--color-accent);
+    border-radius: 20px 0 0 20px;
+    font-size: 1em;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: var(--color-accent);
+    color: var(--color-light-bg);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* --- Main Content & Sections --- */
+main {
+    padding: 20px 5%;
+}
+
+
+
+.hero {
+
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* Overlay de color blanco al 70% de opacidad */
+                      url('images/pantallaprincipal.jpeg'); 
+                      
+
+    background-size: cover;          
+    background-position: center;    
+    background-repeat: no-repeat;    
+
+  
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+}
+/* Archivo: style.css (Añadir al final) */
+
+.size-selector-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px; /* Espacio entre el label y el select */
+}
+
+.size-selector-container label {
+    font-weight: normal;
+    color: var(--color-dark-text);
+    font-size: 0.95em;
+}
+
+.size-select {
+    padding: 5px 10px;
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+    background-color: var(--color-light-bg);
+    cursor: pointer;
+    font-family: 'Poltawski Nowy', serif;
+}
+
+/* Ajuste final para el botón "Añadir al Carrito" que ahora está después del selector */
+.product-card button {
+    margin-top: 10px; /* Asegura espacio entre el selector y el botón */
+}
+
+.hero h1 {
+    color: #994747; 
+
+}
+
+.hero p {
+    margin-bottom: 20px;
+    font-size: 2.0em;
+}
+
+.button-primary {
+    background-color: var(--color-pastel-pink);
+    color: var(--color-dark-text);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    border: 2px solid var(--color-pastel-pink);
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-light-bg);
+    border-color: var(--color-accent);
+}
+
+/* Catalog Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 125px;
+    padding-top: 20px;
+}
+
+.product-card {
+    border: 1px solid var(--color-pale-pink);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    background-color: var(--color-light-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.product-image-container {
+    width: 100%;
+    height: 250px; /* Define la altura que quieres para todas tus imágenes */
+    overflow: hidden; /* Esto recorta la imagen si es más grande que el contenedor */
+    display: flex; /* Centrar la imagen dentro del contenedor si es necesario */
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-accent);
+}
+.product-card-image {
+    width: 100%;
+    height: 100%; /* La imagen toma el 100% del contenedor */
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+.product-card-image:hover {
+    transform: scale(1.05); /* Efecto de zoom sutil al pasar el ratón */
+}
+
+.product-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: var(--color-dark-text);
+}
+
+.product-card p {
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Modal (Cart) --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--color-light-bg);
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-dark-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--color-pale-pink);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-footer {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid var(--color-pale-pink);
+}
+
+/* --- Login Form Styling --- */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--color-pale-pink);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 25px;
+}
+
+#login-form label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* --- Checkout / Payment Page Layout --- */
+.checkout-page-full {
+    padding: 40px 5%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: var(--color-pale-pink);
+    border-radius: 10px;
+}
+
+.summary-box {
+    background-color: var(--color-light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid var(--color-pastel-pink);
+}
+
+.summary-box p {
+    margin-bottom: 5px;
+}
+
+#payment-form label, #payment-form input {
+    display: block;
+    margin-top: 10px;
+}
+
+#payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+}
+
+.low-fidelity-note {
+    font-size: 0.8em;
+    color: red;
+    margin-top: 20px;
+}
+
+/* --- Chatbot --- */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#chatbot-header {
+    background-color: var(--color-pastel-pink);
+    color: var(--color-dark-text);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#chatbot-body {
+    background-color: var(--color-light-bg);
+    border: 1px solid var(--color-pastel-pink);
+    padding: 10px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatbot-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+.bot-message, .user-message {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 15px;
+    max-width: 80%;
+}
+
+.bot-message {
+    background-color: var(--color-pale-pink);
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.user-message {
+    background-color: var(--color-pastel-pink);
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+#chatbot-input {
+    padding: 10px;
+    border: 1px solid var(--color-pale-pink);
+    border-radius: 5px;
+}
+
+/* Utility class */
+.hidden {
+    display: none !important;
+}

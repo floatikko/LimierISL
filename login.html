@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Límier ISL - Iniciar Sesión</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Límier ISL</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="login.html">👤 Iniciar Sesión</a>
+            <a href="#" onclick="goToCheckout()">🛒 Carrito (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-container">
+            <h2> Iniciar Sesión</h2>
+            <form id="login-form">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" required placeholder="ejemplo@correo.com">
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" required placeholder="mínimo 6 caracteres">
+
+                <button type="button" onclick="simulateLogin()" class="button-primary">Entrar</button>
+                <p class="low-fidelity-note"> La autenticación real requiere un servidor.</p>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+
+        
+        function simulateLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password.length >= 6) {
+                alert(`✅ Sesión iniciada SIMULADA para: ${email}\n¡Bienvenido!`);
+                window.location.href = 'index.html'; // Redirect to home
+            } else {
+                alert('Por favor, ingresa un correo y una contraseña válida.');
+            }
+        }
+    </script>
+</body>
+</html>

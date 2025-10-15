@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Límier ISL</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="login.html">👤 Iniciar Sesión</a>
+            <a href="#" onclick="alert('Regresa a la página anterior para ver el carrito.');">🛒 Carrito</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="checkout-page" class="checkout-page-full">
+            <h2>💳 Pasarela de Pago</h2>
+            <div id="checkout-summary" class="summary-box">
+                </div>
+                <div class="cart-footer">
+    <button onclick="clearCart()" class="button-primary" style="background-color: var(--color-accent); margin-right: 10px;">
+        Vaciar Carrito 🗑️
+    </button>
+    
+    <button onclick="goToCheckout()" class="button-primary">
+        Proceder al Pago
+    </button>
+    
+    <p>Total: **$<span id="cart-total">0.00</span>**</p>
+</div>
+            <form id="payment-form">
+                <label for="name">Nombre en la tarjeta:</label>
+                <input type="text" id="name" required>
+
+                <label for="card">Número de tarjeta (16 dígitos):</label>
+                <input type="text" id="card" pattern="\d{16}" title="16 dígitos" required>
+
+                <label for="exp">Fecha de Vencimiento (MM/AA):</label>
+                <input type="text" id="exp" pattern="\d{2}/\d{2}" placeholder="01/25" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" pattern="\d{3,4}" required>
+
+                <button type="button" onclick="processPayment()" class="button-primary">Finalizar Compra</button>
+                <p class="low-fidelity-note"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+  
+        window.onload = function() {
+            
+            if (localStorage.getItem('cartData')) {
+
+                updateCheckoutPage();
+            } else {
+                alert('No hay productos en el carrito para pagar. Redirigiendo al catálogo.');
+                window.location.href = "Index.html";
+            }
+        };
+    </script>
+</body>
+</html>
